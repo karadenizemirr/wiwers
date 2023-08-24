@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{title}} - wiwers</title>
+  <link rel="icon" type="image/x-icon" href="/public//img/favicon.png">
+
+  <!-- Custom CSS -->
+  <link href="/public/css/styles.css" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <script src="/public/js/confetti.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/public/js/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+
+  <!-- Top header  -->
+  <!-- ============================================================== -->
+  <!-- Start Navigation -->
+  <div class="header header-transparent dark">
+    <div class="container">
+      <nav id="navigation" class="navigation navigation-landscape">
+        <div class="nav-header">
+          <a class="nav-brand" href="#"><img src="/public/img/logo.svg" class="logo" alt=""></a>
+          <div class="nav-toggle"></div>
+          <div class="mobile_nav">
+            <ul>
+              <li>
+                <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login" class="btn btn-info"><i class="fas fa-sign-in-alt me-2"></i>Giriş Yap</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-menus-wrapper" style="transition-property: none;">
+          <ul class="nav-menu">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/">Fiyatlar</a></li>
+            <li><a href="/">Çekiliş Sorgula</a></li>
+            <li><a href="/">SSS</a></li>
+            <li><a href="/">Bize Ulaşın</a></li>
+
+          </ul>
+          {{#if isLogin}}
+            <ul class="nav-menu nav-menu-social align-to-right">
+              <li>
+                <a href="/user/profile"><i class="fas fa-user-circle me-2"></i>Hesabım</a>
+              </li>
+              <li>
+                <a href="/raffle/my" ><i class="fas fa-gift me-2"></i>Çekilişlerim</a>
+              </li>
+              <li class="list-buttons ms-2">
+                <a href="/user/logout" class="bg-info">Çıkış Yap<i class="fa-regular fa-circle-right ms-2 mt-1"></i></a>
+              </li>
+            </ul>
+            {{else}}
+              <ul class="nav-menu nav-menu-social align-to-right">
+                <li>
+                  <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><i class="fas fa-sign-in-alt me-2"></i>Giriş Yap</a>
+                </li>
+                <li class="list-buttons ms-2">
+                  <a href="/user/register" class="bg-info">Kayıt Ol<i class="fa-regular fa-circle-right ms-2 mt-1"></i></a>
+                </li>
+              </ul>
+          {{/if}}
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Log In Modal -->
+  <div class="modal auto-off fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+      <div class="modal-content" id="loginmodal">
+        <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="fas fa-close"></i></span>
+        <div class="modal-header">
+          <div class="mdl-thumb"><img src="assets/img/ico.png" class="img-fluid" width="70" alt=""></div>
+          <div class="mdl-title"><h4 class="modal-header-title">Hoşgeldin</h4></div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-login-form">
+            <form action="/user/login" method="post" >
+
+              <div class="form-floating mb-4">
+                <input type="email" class="form-control" placeholder="mail@mail.com" name="email" autocomplete="off" >
+                <label>Kullanıcı Adı</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <input type="password" class="form-control" placeholder="Şifre" name="password">
+                <label>Şifre</label>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary full-width font--bold btn-lg">Giriş Yap</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p>Henüz hesabın yok mu ?<a href="/user/register" class="theme-cl font--bold ms-1">Kayıt Ol</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+  <!-- End Navigation -->
+  <div class="clearfix"></div>
+  <!-- ============================================================== -->
+  <!-- Top header  -->
+  <!-- ============================================================== -->
+{{{body}}}
+
+
+  <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+
+<script src="/public/js/popper.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/bootstrap-select.min.js"></script>
+<script src="/public/js/rangeslider.js"></script>
+<script src="/public/js/slick.js"></script>
+<script src="/public/js/counterup.min.js"></script>
+<script src="/public/js/jquery.magnific-popup.min.js"></script>
+<script src="/public/js/imagesloaded.pkgd.min.js"></script>
+<script src="/public/js/shuffle.min.js"></script>
+<script src="/public/js/wow.js"></script>
+<script src="/public/js/lunar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
+
+
+
+<script src="/public/js/custom.js"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+
+</body>
+</html>

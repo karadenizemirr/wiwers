@@ -1,0 +1,122 @@
+<div class="clearfix"></div>
+<section class="pb-0 wow ">
+  <div class="container">
+    <div class="card border p-4 text-center">
+      <div class="card-body">
+        <h1 class="animate__animated animate__headShake animate__infinite	infinite ">
+          Çekilişi Hazırlıyoruz Lütfen Bekleyiniz...
+        </h1>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-dark" id="get_result_btn" >
+          Çekilişi Başlat
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="result_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Çekiliş Sonucu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12" id="result_modal_body">
+            <h3 class="text-center text-success" >
+              Çekiliş Hazırlandı Çekilişi Başlatabilirsiniz.
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    const currentUrl = window.location.href;
+    const id = currentUrl.split('/').pop()
+    let winners = []
+    let spares = []
+    $.ajax({
+      url :'/raffle/raffleStart/' + id,
+      type: 'GET',
+      success: function(response){
+        winners.push(response.winner.winners)
+
+        const html = `
+          <ul>
+                <li>
+                    <p class="bg-primary rounded p-2 text-white" >
+                      <span class="font--bold">Çekiliş ID:</span>
+                      ${response.raffle.id}
+                    </p>
+                </li>
+                <li>
+                    <p>
+                      <span class="font--bold">Çekiliş Adı:</span>
+                      ${response.raffle.name}
+                    </p>
+                </li>
+                <li>
+                    <p>
+                      <span class="font--bold">Medya Açıklaması:</span>
+                      ${response.media_info.items[0].caption.text}
+                    </p>
+</li>
+                <li>
+                    <p>
+                      <span class="font--bold">Toplam Beğeni:</span>
+                      ${response.media_info.items[0].like_count}
+                    </p>
+</li>
+                <li>
+                    <p>
+                      <span class="font--bold">Toplam Yorum:</span>
+                      ${response.media_info.items[0].comment_count}
+                    </p>
+</li>
+                <li>
+                    <img src="" alt="" class="rounded-5" width="200" height="200">
+</li>
+          </ul>
+        `
+        $('.card-body').html(html)
+      },
+      error: function(xhr, status, error){
+        const html = `        <h1 class="animate__animated animate__headShake animate__infinite	infinite text-danger ">
+          Bir sorun meydana geldi. Lütfen tekrar deneyiniz.
+        </h1>`
+        $('.card-body').html(html)
+      }
+    })
+
+    $('#get_result_btn').on('click', function(){
+      for (let winner of winners[0]){
+        const modal_html = `            <ul>
+              <h5>
+                Asil Kazananlar
+              </h5>
+              <li>
+                Kullanıcı Adı: <span class="font--bold">${winner.node.owner.username}</span>
+              </li>
+            </ul>`
+        $('#result_modal_body').html(modal_html)
+      }
+
+      setTimeout(() => {
+        startConfetti()
+        $('#result_modal').modal('show')
+      }, 1000)
+
+    })
+  })
+</script>

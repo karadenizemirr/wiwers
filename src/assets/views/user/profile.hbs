@@ -1,0 +1,90 @@
+<div class="clearfix"></div>
+<section>
+  <div class="container">
+    <div class="row justify-content-between">
+
+      <div class="col-xl-3 col-lg-4">
+        <div class="offcanvas-lg offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="Sidebaruser">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Filters</h5>
+            <button class="btn-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#Sidebaruser"></button>
+          </div>
+          <div class="offcanvas-body pt-0 pe-lg-4">
+            <div class="position-relative px-lg-4 py-lg-5 rounded-4 bg-white">
+
+              <div class="user-prfl text-center mx-auto">
+                <div class="position-relative mb-2">
+                  <img src="https://placehold.co/450x450" class="img-fluid circle" width="120" alt="img">
+                </div>
+                <div class="user-caps">
+                  <h5 class="mb-0">
+                    {{data.name}} {{data.surname}}
+                  </h5>
+                </div>
+              </div>
+
+              <div class="user-prfl-nav mt-4">
+                <ul class="no-ul-list">
+                  <li class="py-3"><a href="/user/profile" class="fw-medium active text-primary"><i class="fa-solid fa-id-card me-2"></i>Profilim</a></li>
+                  <li class="py-3"><a href="/raffle/my" class="fw-medium"><i class="fa-solid fa-gauge-high me-2"></i>Çekilişlerim</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-9 col-lg-8">
+
+        <!-- Basic Info -->
+        <div class="dash-wrapsw card py-0 px-lg-5 px-4 pb-4 border-0 rounded-4 mb-4">
+          <div class="position-absolute start-0 end-0 top-0 bg-primary ht-120"></div>
+          <div class="dash-y44 position-relative mb-5">
+            <div class="dash-user-thumb mt-5 pt-2">
+              <img src="https://placehold.co/450x450" class="img-fluid circle border border-3" width="100" alt="User">
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="dash-y45">
+            <form action="/user/profile" method="post">
+              <ul class="no-ul-list row g-4">
+                <li class="col-sm-10">
+                  <p class="text-muted mb-0">Kullanıcı ID</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.id}}" name="id" autocomplete="off" disabled>
+                </li>
+                <li class="col-sm-5">
+                  <p class="text-muted mb-0">Adı</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.name}}" name="name" autocomplete="off">
+                </li>
+                <li class="col-sm-5">
+                  <p class="text-muted mb-0">Soyadı</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.surname}}" name="surname" autocomplete="off">
+                </li>
+                <li class="col-sm-5">
+                  <p class="text-muted mb-0">Mail Adresi</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.email}}" name="email" autocomplete="off">
+                </li>
+                <li class="col-sm-5">
+                  <p class="text-muted mb-0">Telefon Nu.</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.phone_number}}" name="phone_number" autocomplete="off">
+                </li>
+                <li class="col-sm-10">
+                  <p class="text-muted mb-0">Şifre</p>
+                  <input type="text" class="m-0 text-dark fw-medium form-control" value="{{data.password}}" name="password" autocomplete="off">
+                </li>
+                <li class="col-sm-10">
+                  <button class="btn btn-sm btn-primary w-100" type="submit">Güncelle</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="clearfix"></div>

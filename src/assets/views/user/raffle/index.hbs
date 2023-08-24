@@ -1,0 +1,88 @@
+<div class="clearfix"></div>
+<section class="pb-0 wow ">
+  <!-- ============================ Breadcrumbs =========================== -->
+  <div class="breadcrumb-wraps gray-simple py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0">
+              <li class="breadcrumb-item font--medium"><a href="#">Çekiliş Başlat</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================ Breadcrumbs End ======================= -->
+<div class="container mt-4">
+<div class="row">
+  <div class="col-md-6 d-flex mt-auto mb-auto">
+    <div class="image">
+      <img src="{{info.image}}" alt="" width="200" height="200">
+    </div>
+    <div class="content">
+      <ul>
+        <li class="mt-3">
+          <i class="fas fa-user mr-2"></i><strong>Kullanıcı Adı:</strong>{{info.user.username}}
+        </li>
+        <li class="mt-3">
+          <i class="fas fa-address-card mr-2"></i><strong>Tam Adı:</strong>{{info.user.full_name}}
+        </li>
+        <li class="mt-3">
+          <i class="fas fa-heart mr-2"></i><strong>Beğeni Sayısı:</strong>{{info.like_count}}
+        </li>
+        <li class="mt-3">
+          <i class="fas fa-comment mr-2"></i><strong>Yorum Sayısı:</strong> {{info.comment_count}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form action="/raffle/create" method="post" >
+      <div class="form-group">
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Çekilişin Adı" name="name" autocomplete="off" >
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="number" class="form-control" placeholder="Kazanan Sayısı" name="winner_number" autocomplete="off">
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" placeholder="Yedek Sayısı" name="spares_number" autocomplete="off">
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" placeholder="En Az Etiket Sayısı" name="hashtag_number" autocomplete="off">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="input-tags" class="form-control" placeholder="Yorumda Bulunması Gereken Kelimeler" name="comment_keyword" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <input type="text" id="input-tags" class="form-control" placeholder="Engellenecek Hesaplar" name="block_keyword" autocomplete="off" />
+        </div>
+        <div class="row">
+          <div class="col">
+            <input class="form-check-input" type="radio" name="is_like" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Beğeniler Arasından
+            </label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="radio" name="is_comment" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Yorumlar Arasından
+            </label>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <button type="submit" class="btn btn-primary full-width font--bold btn-sm">Çekiliş Başlat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</section>

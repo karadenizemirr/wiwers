@@ -44,7 +44,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 		if (canvas === null) {
 			canvas = document.createElement("canvas");
 			canvas.setAttribute("id", "confetti-canvas");
-			canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none");
+			canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:absolute;top:0");
 			document.body.appendChild(canvas);
 			canvas.width = width;
 			canvas.height = height;
